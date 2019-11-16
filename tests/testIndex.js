@@ -22,7 +22,7 @@ describe("User Tags Service - Index", () => {
     page = parse(response.text);
   })
 
-  it("landing page for the api", async function () {
+  it("landing page for the api", async function (done) {
         expect(response).to.have.status(200);
         expect(response).to.be.html;
         expect(response.text).to.include("User Tag Service");
@@ -32,5 +32,6 @@ describe("User Tags Service - Index", () => {
         expect(tagsLink).to.exist;
         expect(tagsLink.text).to.equal("Manage Tags");
         expect(tagsLink.attributes.href).to.equal("/tags/");
+        done();
   });
 });
