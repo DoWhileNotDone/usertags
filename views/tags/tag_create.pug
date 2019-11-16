@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h1= title
+  p #{action} Tag
+  form(action="/tags/new", method="POST")
+    input(type="name", name="tag_name" placeholder="Enter the tag name" required)
+    button(type="submit") Submit
+  |
+  a(href='/tags/') Tags

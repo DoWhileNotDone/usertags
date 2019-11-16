@@ -1,8 +1,8 @@
 const models = require('../../domain/models');
 
 exports.get_all_tags = function(req, res, next) {
-  models.Tag.findAll().then(function(tag) {
-    res.render('tags_list', {
+  models.Tag.findAll().then(function(tags) {
+    res.render('tags/tags_list', {
        tags: tags,
        title: 'Tags'
      });
@@ -15,7 +15,7 @@ exports.get_tag = function(req, res, next) {
         id: req.params.tag_id
       }
   }).then(function(tag) {
-    res.render('tag_details', {
+    res.render('tags/tag_details', {
        tag: tag,
        title: 'Selected Tag'
      });
@@ -23,7 +23,7 @@ exports.get_tag = function(req, res, next) {
 }
 
 exports.show_create_form = function(req, res, next) {
-  res.render('tag_create', {
+  res.render('tags/tag_create', {
     title: 'Add Tag' ,
     action: 'Create'
   });
@@ -43,8 +43,8 @@ exports.show_update_form = function(req, res, next) {
       where: {
         id: req.params.tag_id
       }
-  }).then(function(lead) {
-    res.render('tag_edit', {
+  }).then(function(tag) {
+    res.render('tags/tag_edit', {
        tag: tag,
        title: 'Update Tag',
        action: 'Edit'
@@ -58,7 +58,7 @@ exports.update_tag = function(req, res, next) {
       where: {
         id: req.params.tag_id
       }
-  }).then(function(lead) {
+  }).then(function(tag) {
     tag.name = req.body.tag_name,
     tag.save().then(() => {
       res.redirect("/tags");

@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  h1= title
+  if tags.length != 0
+    for tag in tags
+      p
+        span #{tag.name}
+        |
+        a(href='/tags/' + tag.id) View
+        |
+        a(href='/tags/' + tag.id + '/edit') Edit
+  else
+    p No Tags
+  a(href='/tags/new') New
+  |
+  a(href='/') Home

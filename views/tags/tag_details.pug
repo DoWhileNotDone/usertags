@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1= title
+  if tag
+    p #{tag.name}
+    |
+    a(href='/tags/' + tag.id + '/edit') Edit
+  else
+    p No Tag Selected
+  |
+  a(id='link-tags-manage' href='/tags/') Tag
