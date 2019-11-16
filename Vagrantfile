@@ -189,7 +189,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
    You are now up and running.
 
-   The URL is 192.168.50.52:3000s
+   The URL is 192.168.50.52:3000
 
 MESSAGE
 
