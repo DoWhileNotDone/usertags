@@ -67,13 +67,21 @@ exports.update_tag = function(req, res, next) {
 }
 
 exports.delete_tag = function(req, res, next) {
-  models.Tag.findOne({
+  models.Tag.destroy({
       where: {
         id: req.params.tag_id
       }
-  }).then(function(tag) {
-    tag.destroy().then(() => {
+  }).then(result => {
       res.redirect("/tags");
-    });
+  });
+}
+
+exports.delete_tag_json = function(req, res, next) {
+  models.Tag.destroy({
+      where: {
+        id: req.params.tag_id
+      }
+  }).then(result => {
+      res.send({ msg: "Success" });
   });
 }

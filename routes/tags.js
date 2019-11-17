@@ -17,6 +17,6 @@ router.get('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-
 router.post('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/edit', tags_controller.update_tag);
 
 /* Delete tags Listing */
-router.get('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/delete', tags_controller.delete_tag);
-
+router.post('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/delete', tags_controller.delete_tag);
+router.delete('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/delete-json', tags_controller.delete_tag_json);
 module.exports = router;
