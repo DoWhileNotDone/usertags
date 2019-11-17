@@ -65,3 +65,15 @@ exports.update_tag = function(req, res, next) {
     });
   });
 }
+
+exports.delete_tag = function(req, res, next) {
+  models.Tag.findOne({
+      where: {
+        id: req.params.tag_id
+      }
+  }).then(function(tag) {
+    tag.destroy().then(() => {
+      res.redirect("/tags");
+    });
+  });
+}

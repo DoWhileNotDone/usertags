@@ -16,4 +16,7 @@ router.post('/tags/new', tags_controller.create_tag);
 router.get('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/edit', tags_controller.show_update_form);
 router.post('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/edit', tags_controller.update_tag);
 
+/* Delete tags Listing */
+router.get('/tags/:tag_id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/delete', tags_controller.delete_tag);
+
 module.exports = router;
