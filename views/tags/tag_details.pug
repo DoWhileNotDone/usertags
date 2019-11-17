@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h1= title
+  if tag
+    p #{tag.name}
+    | 
+    a(href='/tags/' + tag.id + '/edit') Edit
+    | 
+    form(action='/tags/' + tag.id + '/delete' method="POST" )
+      button(type='Submit') Delete
+  else
+    p No Tag Selected
+  |
+  a(id='link-tags-manage' href='/tags/') Tags

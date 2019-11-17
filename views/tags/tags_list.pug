@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h1= title
+  if tags.length != 0
+    for tag in tags
+      p(id=tag.id)
+        span #{tag.name}
+        |
+        a(href='/tags/' + tag.id) View
+        |
+        a(href='/tags/' + tag.id + '/edit') Edit
+        | 
+        button(onclick=`deleteTag('${tag.id}')`) Delete
+  else
+    p No Tags
+  a(href='/tags/new') New
+  |
+  a(href='/') Home
+  script(src="https://code.jquery.com/jquery-3.4.1.js")
+  script(src="/javascripts/tags.js")

@@ -11,7 +11,7 @@ module.exports = {
   "test": {
     "username": "express",
     "password": "password",
-    "database": "express",
+    "database": "express-test",
     "host": "127.0.0.1",
     "post": 5432,
     "dialect": "postgres",

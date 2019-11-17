@@ -176,6 +176,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # https://gist.github.com/mrbongiolo/27e4166834bea1477f76
     sudo -u postgres psql -c "CREATE USER express WITH PASSWORD 'password'"
     sudo -u postgres createdb express
+    sudo -u postgres createdb express-test
     sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE express TO express"
   SHELL
 
@@ -189,7 +190,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
    You are now up and running.
 
-   The URL is 192.168.50.52:3000s
+   The URL is 192.168.50.52:3000
 
 MESSAGE
 
