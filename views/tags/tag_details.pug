@@ -1,15 +1,25 @@
 extends ../layout
 
 block content
-  h1= title
+  h4= title
   if tag
-    p #{tag.name}
-    | 
-    a(href='/tags/' + tag.id + '/edit') Edit
-    | 
-    form(action='/tags/' + tag.id + '/delete' method="POST" )
-      button(type='Submit') Delete
+    .row
+      .col-md-6
+        table.table
+          thead
+            tr
+              th(scope="col") Name 
+              th(scope="col") Actions 
+              th(scope="col")  
+            tr
+          tbody    
+            tr(id=tag.id)
+              td
+                span #{tag.name}
+              td
+                a(href='/tags/' + tag.id + '/edit').btn.btn-primary Edit
+              td
+                form(action='/tags/' + tag.id + '/delete' method="POST" )
+                  button(type='Submit').btn.btn-danger Delete
   else
     p No Tag Selected
-  |
-  a(id='link-tags-manage' href='/tags/') Tags

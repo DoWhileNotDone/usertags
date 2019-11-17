@@ -1,21 +1,32 @@
 extends ../layout
 
 block content
-  h1= title
+  h4= title
   if tags.length != 0
-    for tag in tags
-      p(id=tag.id)
-        span #{tag.name}
-        |
-        a(href='/tags/' + tag.id) View
-        |
-        a(href='/tags/' + tag.id + '/edit') Edit
-        | 
-        button(onclick=`deleteTag('${tag.id}')`) Delete
+    .row
+      .col-md-6
+        table.table
+          thead
+            tr
+              th(scope="col") Name 
+              th(scope="col") Actions 
+              th(scope="col")
+              th(scope="col")  
+            tr
+          tbody    
+            for tag in tags
+              tr(id=tag.id)
+                td
+                  span #{tag.name}
+                td
+                  a(href='/tags/' + tag.id).btn.btn-primary View
+                td
+                  a(href='/tags/' + tag.id + '/edit').btn.btn-primary Edit
+                td
+                  button(onclick=`deleteTag('${tag.id}')`).btn.btn-danger Delete
   else
     p No Tags
   a(href='/tags/new') New
-  |
-  a(href='/') Home
-  script(src="https://code.jquery.com/jquery-3.4.1.js")
+  
+block footer  
   script(src="/javascripts/tags.js")

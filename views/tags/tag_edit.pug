@@ -1,13 +1,12 @@
 extends ../layout
 
 block content
-  h1= title
-  p #{action} Tag
+  h4 #{action} Tag
   if tag
     form(action="/tags/" + tag.id + '/edit', method="POST")
-      input(type="name", name="tag_name" value=tag.name required)
-      button(type="submit") Submit
+      .input-group.mb-3
+        input(type="name", name="tag_name" value=tag.name required).form-control
+        .input-group-append
+          button(type="submit").btn.btn-primary Submit
   else
     p No Tag Selected
-  |
-  a(id='link-tags-manage' href='/tags/') Tags

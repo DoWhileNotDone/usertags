@@ -1,7 +1,14 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+html(lang='en')
+  include common/head.pug
+  +head(title)
   body
-    block content
+    include common/navbar.pug
+    +navbar()
+    .container
+      .row.align-items-center
+        .col-md-6.order-md-1.text-center.text-md-left.pr-md-5          
+          block content
+  include common/footer.pug
+  +footer()
+  block footer
